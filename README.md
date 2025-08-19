@@ -16,3 +16,9 @@ This project sets up a monitoring stack for Linux servers using:
 3. Access Prometheus at `http://localhost:9090`
 4. Alerts are configured via Alertmanager.
 
+
+
+
+[Multiple Servers] --> [Node Exporter/Exporter Agents] --> [Prometheus Server] --> [Grafana Dashboard]
+                                                               |
+                                                               --> [Alertmanager] --> [Email/SMS notifications]
