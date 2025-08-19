@@ -1,1 +1,12 @@
 
+groups:
+- name: server_alerts
+  rules:
+  - alert: HighCPUUsage
+    expr: node_cpu_seconds_total{mode="idle"} < 20
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: "CPU usage high on {{ $labels.instance }}"
+      description: "CPU < 20% idle for 2 minutes."
