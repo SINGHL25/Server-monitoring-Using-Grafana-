@@ -1,12 +1,20 @@
 
-groups:
-- name: server_alerts
-  rules:
-  - alert: HighCPUUsage
-    expr: node_cpu_seconds_total{mode="idle"} < 20
-    for: 2m
-    labels:
-      severity: critical
-    annotations:
-      summary: "CPU usage high on {{ $labels.instance }}"
-      description: "CPU < 20% idle for 2 minutes."
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+  receiver: 'email'
+
+receivers:
+  - name: 'email'
+    email_configs:
+      - to: 'admin@example.com'
+        from: 'alertmanager@example.com'
+        smarthost: 'smtp.example.com:587'
+        auth_username: 'alertmanager@example.com'
+        auth_identity: 'alertmanager@example.com'
+        auth_password: 'password'
