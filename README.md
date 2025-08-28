@@ -2,6 +2,12 @@
 erver monitoring &amp; alerting system using Grafana + Prometheus on Ubuntu, with dashboards, alerting, email/phone notifications, multi-server monitoring
 # Server Monitoring Project
 
+<img width="612" height="555" alt="image" src="https://github.com/user-attachments/assets/d4d99afe-82b1-4928-bdf0-cde4d2b6deac" />
+
+
+
+
+
 This project sets up a monitoring stack for Linux servers using:
 
 - **Prometheus**: Metrics collection
